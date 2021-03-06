@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Board game players finder</string>
+    <string name="my_messages">my messages</string>
+    <string name="find_game_to_play">Find game to play</string>
+    <string name="find_people_to_play">Find people to play</string>
+    <string name="game_name">Game name</string>
+    <string name="place_to_play">Place to play</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="players_need_to_find">Players need to find</string>
+    <string name="create_game_event">Create game event</string>
+    
+    <string name="please_enter_the_name_of_the_game">Please enter the name of the game</string>
+    <string name="please_enter_the_required_number_of_the_players">Please enter the required number of players</string>
+    <string name="please_indicate_the_address_where_the_event_will_take_place">Please indicate the address where the event will take place</string>
+    <string name="please_enter_date">Please enter date</string>
+    <string name="please_enter_time">Please enter time</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="list_of_games">List of games</string>
+    <string name="sign_out">Sign out</string>
+
+</resources>
