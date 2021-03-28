@@ -11,6 +11,8 @@ import by.it.academy.boardgameplayersfinder.entity.GameEventItem
 class MyGamesAdapter(private val values: MutableList<GameEventItem>) :
     RecyclerView.Adapter<MyGamesAdapter.MyGamesItemViewHolder>() {
 
+    lateinit var onEventItemClickListener: (gameEventItem: GameEventItem) -> Unit
+
     class MyGamesItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val gameName: TextView = itemView.findViewById(R.id.textViewGameName)
@@ -21,20 +23,24 @@ class MyGamesAdapter(private val values: MutableList<GameEventItem>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyGamesItemViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_my_accepted_games,parent,false)
+        val itemView = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_my_accepted_games, parent, false)
         return MyGamesItemViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: MyGamesItemViewHolder, position: Int) {
 
         val gameEventItem = values[position]
+        val numberOfPlayers =
+            "${gameEventItem.playersAvailable}/${gameEventItem.maximumNumberOfPlayers}"
 
-        with(holder){
+        with(holder) {
+            itemView.setOnClickListener { onEventItemClickListener.invoke(gameEventItem) }
             gameName.text = gameEventItem.gameName
-            placeToPlayAddress.text =  gameEventItem.placeToPlayAddress
+            placeToPlayAddress.text = gameEventItem.placeToPlayAddress
             dateOfEvent.text = gameEventItem.dateOfEvent
             timeOfEvent.text = gameEventItem.timeOfEvent
-            numberOfPeople.text = "3/4"
+            numberOfPeople.text = numberOfPlayers
         }
     }
 

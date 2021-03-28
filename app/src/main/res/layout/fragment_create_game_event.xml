@@ -6,6 +6,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutGameName"
+        style="@style/Widget.Design.TextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -25,44 +26,75 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutPlayersNeedToFind"
-        android:layout_width="match_parent"
+        android:id="@+id/textInputLayoutPlayersAvailable"
+        style="@style/Widget.Design.TextInputLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
-        android:hint="@string/players_need_to_find"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="@string/players_available"
+        app:layout_constraintEnd_toStartOf="@+id/textInputLayoutMaximumNumberOfPlayers"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutGameName">
 
         <EditText
-            android:id="@+id/editTextPlayersNeedToFind"
+            android:id="@+id/editTextPlayersAvailable"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutPlaceToPlay"
+        android:id="@+id/textInputLayoutMaximumNumberOfPlayers"
+        style="@style/Widget.Design.TextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/maximum_number_of_players"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textInputLayoutPlayersAvailable"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutGameName">
+
+        <EditText
+            android:id="@+id/editTextMaximumNumberOfPlayers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
-        android:hint="@string/place_to_play"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPlayersNeedToFind">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutMaximumNumberOfPlayers">
 
-        <EditText
-            android:id="@+id/editTextPlaceToPlay"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:text="@string/place_to_play_address" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/autocomplete_fragment"
+            android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutMaximumNumberOfPlayers" />
+    </androidx.cardview.widget.CardView>
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutDate"
+        style="@style/Widget.Design.TextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -71,7 +103,7 @@
         android:hint="@string/date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPlaceToPlay">
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
 
         <EditText
             android:id="@+id/editTextDate"
@@ -83,6 +115,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutTime"
+        style="@style/Widget.Design.TextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -97,11 +130,34 @@
             android:id="@+id/editTextTime"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="datetime"
             android:focusable="false"
+            android:inputType="datetime"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutDate"/>
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutDate" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutDescription"
+        style="@style/Widget.Design.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="36dp"
+        android:hint="@string/description"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCreateGameEvent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutTime">
+
+        <EditText
+            android:id="@+id/editTextDescription"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="start"
+            android:inputType="textMultiLine" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

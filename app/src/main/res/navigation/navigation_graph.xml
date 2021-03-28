@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation_graph"
+    app:startDestination="@id/authorizationFragment">
+
+    <fragment
+        android:id="@+id/authorizationFragment"
+        android:name="by.it.academy.boardgameplayersfinder.fragments.AuthorizationFragment"
+        android:label="AuthorizationFragment" >
+        <action
+            android:id="@+id/action_authorizationFragment_to_listOfMyGamesFragment"
+            app:destination="@id/listOfMyGamesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listOfMyGamesFragment"
+        android:name="by.it.academy.boardgameplayersfinder.fragments.ListOfMyGamesFragment"
+        android:label="ListOfMyGamesFragment" >
+        <action
+            android:id="@+id/action_listOfMyGamesFragment_to_authorizationFragment"
+            app:destination="@id/authorizationFragment" />
+        <action
+            android:id="@+id/action_listOfMyGamesFragment_to_createGameEventFragment"
+            app:destination="@id/createGameEventFragment" />
+        <action
+            android:id="@+id/action_listOfMyGamesFragment_to_findEventFragment"
+            app:destination="@id/findEventFragment" />
+        <action
+            android:id="@+id/action_listOfMyGamesFragment_to_changeInformationAboutGameEventFragment"
+            app:destination="@id/changeInformationAboutGameEventFragment" />
+        <action
+            android:id="@+id/action_listOfMyGamesFragment_to_acceptedGameInformationForGuestFragment"
+            app:destination="@id/acceptedGameInformationForGuestFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createGameEventFragment"
+        android:name="by.it.academy.boardgameplayersfinder.fragments.CreateGameEventFragment"
+        android:label="CreateGameEventFragment" >
+        <action
+            android:id="@+id/action_createGameEventFragment_to_listOfMyGamesFragment"
+            app:destination="@id/listOfMyGamesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/findEventFragment"
+        android:name="by.it.academy.boardgameplayersfinder.fragments.FindEventFragment"
+        android:label="FindEventFragment" >
+        <action
+            android:id="@+id/action_findEventFragment_to_listOfMyGamesFragment"
+            app:destination="@id/listOfMyGamesFragment" />
+        <action
+            android:id="@+id/action_findEventFragment_to_applyForGameEventItemFragment"
+            app:destination="@id/applyForGameEventItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/applyForGameEventItemFragment"
+        android:name="by.it.academy.boardgameplayersfinder.fragments.ApplyForGameEventItemFragment"
+        android:label="ApplyForGameEventItemFragment" >
+        <action
+            android:id="@+id/action_applyForGameEventItemFragment_to_listOfMyGamesFragment"
+            app:destination="@id/listOfMyGamesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changeInformationAboutGameEventFragment"
+        android:name="by.it.academy.boardgameplayersfinder.fragments.ChangeInformationAboutGameEventByOwnerFragment"
+        android:label="ChangeInformationAboutGameEventFragment" >
+        <action
+            android:id="@+id/action_changeInformationAboutGameEventFragment_to_listOfMyGamesFragment"
+            app:destination="@id/listOfMyGamesFragment" />
+        <action
+            android:id="@+id/action_changeInformationAboutGameEventFragment_to_joinedPlayersFragment2"
+            app:destination="@id/joinedPlayersFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/joinedPlayersFragment2"
+        android:name="by.it.academy.boardgameplayersfinder.fragments.JoinedPlayersFragment"
+        android:label="JoinedPlayersFragment" >
+        <action
+            android:id="@+id/action_joinedPlayersFragment2_to_changeInformationAboutGameEventFragment"
+            app:destination="@id/changeInformationAboutGameEventFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/acceptedGameInformationForGuestFragment"
+        android:name="by.it.academy.boardgameplayersfinder.fragments.AcceptedGameInformationForGuestFragment"
+        android:label="AcceptedGameInformationForGuestFragment" >
+        <action
+            android:id="@+id/action_acceptedGameInformationForGuestFragment_to_listOfMyGamesFragment"
+            app:destination="@id/listOfMyGamesFragment" />
+    </fragment>
+</navigation>
